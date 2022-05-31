@@ -1,6 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {SafeAreaView, View, StyleSheet} from 'react-native';
-import {Text, Button} from 'react-native-elements';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import axios from 'axios';
 
 export const API = 'https://api.adviceslip.com/advice';
@@ -25,18 +30,14 @@ export default function Home() {
       <SafeAreaView style={styles.scrollView}>
         <View style={styles.root}>
           <View>
-            <Text h4>Your Advice: </Text>
-            <Text h2 style={styles.advice}>
-              {advice}
-            </Text>
+            <Text style={styles.title}>Your Advice: </Text>
+            <Text style={styles.advice}>{advice}</Text>
           </View>
-          <Button
-            title="Get another advice!"
+          <TouchableOpacity
             onPress={onGetNewAdvice}
-            containerStyle={styles.buttonContainer}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonTitle}
-          />
+            style={[styles.buttonContainer, styles.button]}>
+            <Text style={styles.buttonTitle}>Get another advice!</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </>
@@ -53,9 +54,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 50,
   },
+  title: {
+    fontSize: 16,
+  },
   advice: {
     color: '#d50000',
     borderRadius: 20,
+    fontSize: 24,
     marginVertical: 30,
   },
   buttonContainer: {
