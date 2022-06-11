@@ -11,14 +11,14 @@ import {fetchData} from './fetchData';
 export default function Home() {
   const [advice, setAdvice] = useState('');
 
-  const getAdvice = useCallback(async () => {
+  const getAdvice = async () => {
     const data = await fetchData();
     setAdvice(data.advice);
-  }, []);
+  };
 
   useEffect(() => {
     getAdvice();
-  }, [getAdvice]);
+  }, []);
 
   const onGetNewAdvice = useCallback(() => {
     getAdvice();
