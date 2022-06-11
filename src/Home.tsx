@@ -6,15 +6,14 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import axios from 'axios';
-
-export const API = 'https://api.adviceslip.com/advice';
+import {fetchData} from './fetchData';
 
 export default function Home() {
   const [advice, setAdvice] = useState('');
 
   const getAdvice = useCallback(async () => {
-    axios.get(API).then(res => setAdvice(res.data.slip.advice));
+    const data = await fetchData();
+    setAdvice(data.advice);
   }, []);
 
   useEffect(() => {
@@ -66,6 +65,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 25,
     overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
     borderRadius: 25,
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     color: '#fff',
+    textAlign: 'center',
     fontSize: 22,
   },
 });
