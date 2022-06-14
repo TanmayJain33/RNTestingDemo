@@ -1,82 +1,38 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-import {fetchData} from './fetchData';
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-export default function Home() {
-  const [advice, setAdvice] = useState('');
-
-  const getAdvice = async () => {
-    const data = await fetchData();
-    setAdvice(data.advice);
-  };
-
-  useEffect(() => {
-    getAdvice();
-  }, []);
-
-  const onGetNewAdvice = useCallback(() => {
-    getAdvice();
-  }, [getAdvice]);
-
+export default function Home({navigation}: any) {
   return (
-    <>
-      <SafeAreaView style={styles.scrollView}>
-        <View style={styles.root}>
-          <View>
-            <Text style={styles.title}>Your Advice: </Text>
-            <Text style={styles.advice}>{advice}</Text>
-          </View>
-          <TouchableOpacity
-            onPress={onGetNewAdvice}
-            style={[styles.buttonContainer, styles.button]}>
-            <Text style={styles.buttonTitle}>Get another advice!</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    </>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <View
+        style={{
+          alignItems: 'center',
+          flex: 1,
+          justifyContent: 'center',
+        }}>
+        <Text style={{fontSize: 40, fontWeight: '700', color: '#000'}}>
+          Advice
+        </Text>
+        <TouchableOpacity
+          style={{
+            margin: 5,
+            marginLeft: 10,
+            backgroundColor: '#605ff0',
+            borderRadius: 40,
+          }}
+          onPress={() => navigation.navigate('Advice')}>
+          <Text style={{fontSize: 20, color: '#fff', padding: 10}}>
+            Click Here
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          height: 1,
+          width: '95%',
+          backgroundColor: '#000',
+        }}
+      />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: '#fffde7',
-  },
-  root: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 50,
-  },
-  title: {
-    fontSize: 16,
-  },
-  advice: {
-    color: '#d50000',
-    borderRadius: 20,
-    fontSize: 24,
-    marginVertical: 30,
-  },
-  buttonContainer: {
-    borderRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  button: {
-    borderRadius: 25,
-    height: 50,
-    paddingHorizontal: 25,
-    backgroundColor: '#000',
-  },
-  buttonTitle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 22,
-  },
-});

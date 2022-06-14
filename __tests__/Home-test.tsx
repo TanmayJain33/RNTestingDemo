@@ -5,13 +5,10 @@
 import 'react-native';
 import React from 'react';
 import Home from '../src/Home';
-import {render, fireEvent} from '@testing-library/react-native';
 
-describe('Home', () => {
-  describe('clicking Get another advice!', () => {
-    it('renders new advice', () => {
-      const {getByText} = render(<Home />);
-      fireEvent.press(getByText('Get another advice!')); //used to test events
-    });
-  });
+// Note: test renderer must be required after react-native.
+import renderer from 'react-test-renderer';
+
+it('renders correctly', () => {
+  renderer.create(<Home />);
 });
