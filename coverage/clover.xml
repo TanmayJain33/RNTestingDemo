@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1655187444552" clover="3.2.0">
-  <project timestamp="1655187444552" name="All files">
-    <metrics statements="15" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="7" elements="23" coveredelements="20" complexity="0" loc="15" ncloc="15" packages="1" files="3" classes="3"/>
+<coverage generated="1655543380351" clover="3.2.0">
+  <project timestamp="1655543380351" name="All files">
+    <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7" elements="25" coveredelements="20" complexity="0" loc="16" ncloc="16" packages="1" files="3" classes="3"/>
     <file name="Advice.tsx" path="/Users/apple/Desktop/RNTestingDemo/src/Advice.tsx">
       <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <line num="12" count="1" type="stmt"/>
@@ -16,9 +16,10 @@
       <line num="46" count="1" type="stmt"/>
     </file>
     <file name="Home.tsx" path="/Users/apple/Desktop/RNTestingDemo/src/Home.tsx">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
       <line num="5" count="1" type="stmt"/>
       <line num="23" count="0" type="stmt"/>
+      <line num="52" count="0" type="stmt"/>
     </file>
     <file name="fetchData.ts" path="/Users/apple/Desktop/RNTestingDemo/src/fetchData.ts">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
