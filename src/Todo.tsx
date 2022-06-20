@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import AddList from './components/AddList';
 import ItemsList from './components/ItemsList';
 import Error from './components/ErrorComponent';
@@ -37,24 +32,19 @@ export default function Todo() {
   };
 
   return (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        Keyboard.dismiss();
-      }}>
-      <View style={styles.container}>
-        <View style={styles.inputArea}>
-          <AddList
-            onPressAdd={handleSetList}
-            value={listInput}
-            onChange={handleInput}
-          />
-        </View>
-        <View style={styles.listArea}>
-          <ItemsList data={list} onDelete={handleDelete} />
-          <Error visible={error}>Please insert a valid text</Error>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.inputArea}>
+        <AddList
+          onPressAdd={handleSetList}
+          value={listInput}
+          onChange={handleInput}
+        />
       </View>
-    </TouchableWithoutFeedback>
+      <View style={styles.listArea}>
+        <ItemsList data={list} onDelete={handleDelete} />
+        <Error visible={error}>Please insert a valid text</Error>
+      </View>
+    </View>
   );
 }
 
