@@ -60,5 +60,12 @@ it('should delete a todo item', () => {
 });
 
 //should show an error text whenever todo text is empty
+it('should show an error text whenever todo text is empty', () => {
+  const {getByText} = render(<Todo />);
+  const addItemButton = getByText('+');
+  fireEvent.press(addItemButton);
+  const errorMessage = getByText('Please insert a valid text');
+  expect(errorMessage).not.toBeNull();
+});
 
 //should dissappear when a valid todo is created
