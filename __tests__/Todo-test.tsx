@@ -42,6 +42,22 @@ it('should create multiples todo items', () => {
 });
 
 //delete a todo item
+it('should delete a todo item', () => {
+  //created a todo item
+  const {getByText, getByPlaceholderText, queryByText} = render(<Todo />);
+  const addItemButton = getByText('+');
+  const textInput = getByPlaceholderText('New Todo...');
+  fireEvent.changeText(textInput, 'Todo 1');
+  fireEvent.press(addItemButton);
+  //Check for any X text as a button
+  const deleteItemButton = getByText('X');
+  //Check if delete button is pressable
+  fireEvent.press(deleteItemButton);
+  //Check if there is any text 'Todo 1' in whole app
+  const deletedItem = queryByText('Todo 1');
+  //Check if the todo is deleted
+  expect(deletedItem).toBeNull();
+});
 
 //should show an error text whenever todo text is empty
 
