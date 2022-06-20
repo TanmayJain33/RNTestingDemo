@@ -20,6 +20,26 @@ it('should create a todo item', () => {
 });
 
 //create multiple todo items
+it('should create multiples todo items', () => {
+  const {getByText, getByPlaceholderText} = render(<Todo />);
+  const addItemButton = getByText('+');
+  const textInput = getByPlaceholderText('New Todo...');
+  //Todo Item 1
+  fireEvent.changeText(textInput, 'Todo 1');
+  fireEvent.press(addItemButton);
+  const firstCreatedItem = getByText('Todo 1');
+  expect(firstCreatedItem).not.toBeNull();
+  //Todo Item 2
+  fireEvent.changeText(textInput, 'Todo 2');
+  fireEvent.press(addItemButton);
+  const secondCreatedItem = getByText('Todo 2');
+  expect(secondCreatedItem).not.toBeNull();
+  //Todo Item 3
+  fireEvent.changeText(textInput, 'Todo 3');
+  fireEvent.press(addItemButton);
+  const thirdCreatedItem = getByText('Todo 3');
+  expect(thirdCreatedItem).not.toBeNull();
+});
 
 //delete a todo item
 
