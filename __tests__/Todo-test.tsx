@@ -68,4 +68,16 @@ it('should show an error text whenever todo text is empty', () => {
   expect(errorMessage).not.toBeNull();
 });
 
-//should dissappear when a valid todo is created
+//should disappear error text when a valid todo is created
+it('should disappear error text when a valid todo is created', () => {
+  const {getByText, getByPlaceholderText, queryByText} = render(<Todo />);
+  const addItemButton = getByText('+');
+  fireEvent.press(addItemButton);
+  const errorMessage = getByText('Please insert a valid text');
+  expect(errorMessage).not.toBeNull();
+  const textInput = getByPlaceholderText('New Todo...');
+  fireEvent.changeText(textInput, 'Todo 1');
+  fireEvent.press(addItemButton);
+  const errorText = queryByText('Please insert a valid text');
+  expect(errorText).toBeNull();
+});
