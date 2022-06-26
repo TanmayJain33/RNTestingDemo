@@ -21,7 +21,11 @@ export default function Login({navigation}: any) {
       <TextField label="Password" secureTextEntry />
       <TextField label="Confirm Password" secureTextEntry />
       <ErrorText text="" />
-      <ButtonComponent text="Submit" onPress={() => Alert.alert('todo')} />
+      <ButtonComponent
+        text="Submit"
+        onPress={() => Alert.alert('todo')}
+        disabled
+      />
       <View style={styles.textBlock}>
         <Text style={styles.text}>Already have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>

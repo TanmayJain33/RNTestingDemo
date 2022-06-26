@@ -5,7 +5,8 @@ export function ButtonComponent({text, onPress, disabled = false, style = {}}) {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, disabled && styles.buttonLoading, style]}>
+      style={[styles.button, disabled && styles.buttonLoading, style]}
+      disabled={disabled}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
