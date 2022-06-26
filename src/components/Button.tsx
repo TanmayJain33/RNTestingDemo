@@ -1,9 +1,16 @@
 import React from 'react';
 import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-export function ButtonComponent({text, onPress, disabled = false, style = {}}) {
+export function ButtonComponent({
+  testID,
+  text,
+  onPress,
+  disabled = false,
+  style = {},
+}) {
   return (
     <TouchableOpacity
+      testID={testID}
       onPress={onPress}
       style={[styles.button, disabled && styles.buttonLoading, style]}
       disabled={disabled}>

@@ -16,8 +16,14 @@ export default function Login({navigation}: any) {
   const [error, setError] = useState('');
 
   const handleSubmit = () => {
-    setError('');
-    Alert.alert('todo');
+    if (email == '') {
+      setError('Please enter your email address.');
+    } else if (password == '') {
+      setError('Please enter your password.');
+    } else {
+      setError('');
+      Alert.alert('Login Successful');
+    }
   };
 
   return (
@@ -33,6 +39,7 @@ export default function Login({navigation}: any) {
       />
       <TextField
         label="Password"
+        placeholder="***"
         secureTextEntry
         onChangeText={(password: React.SetStateAction<string>) =>
           setPassword(password)
@@ -41,7 +48,11 @@ export default function Login({navigation}: any) {
         autoCapitalize="none"
       />
       <ErrorText text={error} />
-      <ButtonComponent text="Submit" onPress={handleSubmit} />
+      <ButtonComponent
+        testID="Login.Submit.Button"
+        text="Submit"
+        onPress={handleSubmit}
+      />
       <View style={styles.textBlock}>
         <Text style={styles.text}>Don't have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>

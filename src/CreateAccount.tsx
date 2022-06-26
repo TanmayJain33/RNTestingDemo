@@ -10,7 +10,7 @@ import {
 import {ButtonComponent} from './components/Button';
 import {ErrorText, TextField} from './components/FormComponent';
 
-export default function Login({navigation}: any) {
+export default function CreateAccount({navigation}) {
   return (
     <ScrollView
       contentContainerStyle={{paddingVertical: 20}}
