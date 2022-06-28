@@ -16,7 +16,13 @@ export const Input = ({label, error, ...props}) => {
     <View style={containerStyle}>
       <Text style={styles.inputLabel}>{label}</Text>
       <View style={styles.row}>
-        <TextInput autoCapitalize="none" style={styles.input} {...props} />
+        <TextInput
+          placeholderTextColor="#b4b6b8"
+          testID="Form.TextInput"
+          autoCapitalize="none"
+          style={styles.input}
+          {...props}
+        />
       </View>
     </View>
   );
@@ -24,7 +30,10 @@ export const Input = ({label, error, ...props}) => {
 
 export const FormButton = ({text, onPress}) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.button}>
+    <TouchableOpacity
+      testID="Login.Submit.Button"
+      onPress={onPress}
+      style={styles.button}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     fontSize: 14,
-    color: '#b4b6b8',
+    color: '#353031',
   },
   row: {
     flexDirection: 'row',

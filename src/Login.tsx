@@ -65,9 +65,15 @@ export default function Login({navigation}: any) {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="position">
       <Text style={styles.headerText}>Login</Text>
-      <Input label="Email" onChangeText={email.set} error={emailErrorMsg} />
+      <Input
+        label="Email"
+        placeholder="john.doe@example.com"
+        onChangeText={email.set}
+        error={emailErrorMsg}
+      />
       <Input
         label="Password"
+        placeholder="***"
         onChangeText={password.set}
         error={passwordErrorMsg}
       />

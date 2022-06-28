@@ -7,18 +7,18 @@ it('renders correctly', () => {
 });
 
 it('renders default elements', () => {
-  const {getByText, getByPlaceholderText} = render(<Login />);
-  getByPlaceholderText('john.doe@ecample.com');
+  const {getByText, getByPlaceholderText, getAllByText} = render(<Login />);
+  getByPlaceholderText('john.doe@example.com');
   getByPlaceholderText('***');
-  getByText('Submit');
+  getAllByText('Login');
   getByText("Don't have an account?");
   getByText('Create Account');
 });
 
 it('shows invalid input messages', () => {
   const {getByTestId, getByText} = render(<Login />);
-  const submitButton = getByTestId('Login.Submit.Button');
-  fireEvent.press(submitButton);
-  const emailErrorMessage = getByText('Please enter your email address.');
+  const loginButton = getByTestId('Login.Submit.Button');
+  fireEvent.press(loginButton);
+  const emailErrorMessage = getByText('Invalid email.');
   expect(emailErrorMessage).not.toBeNull();
 });
