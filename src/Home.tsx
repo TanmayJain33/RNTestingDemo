@@ -78,7 +78,7 @@ export default function Home({navigation}: any) {
             backgroundColor: '#605ff0',
             borderRadius: 40,
           }}
-          onPress={() => navigation.navigate('CreateAccount')}>
+          onPress={() => navigation.navigate('Login')}>
           <Text style={{fontSize: 20, color: '#fff', padding: 10}}>
             Click Here
           </Text>
